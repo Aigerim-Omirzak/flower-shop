@@ -10,6 +10,7 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </head>
 <body>
+<script src="hello.js"></script>
 <header class="header">
   <nav class="navbar navbar-expand-lg navbar-scroll dark-nav">
     <div class="container-fluid">
@@ -24,6 +25,9 @@
           </li>
           <li class="nav-item">
             <a class="nav-link" href="about.html">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="master-class.html">Master Class</a>
           </li>
           <div class="dropdown nav-item">
             <button class="nav-link" type="button" data-bs-toggle="dropdown" aria-expanded="false">Order</button>
@@ -115,14 +119,15 @@
     <div class="container">
       <h4>10% off Flowers Today</h4>
       <h6>Sign In to get your Code</h6>
-      <form class="row g-3">
-        <div class="col-md-6">
-          <label for="exampleFormControlInput1" class="form-label">Name</label>
-          <input type="text" class="form-control" placeholder="Wright your name here" aria-label="Name">
+      <form name="myForm" onsubmit="return validateForm()" method="post" class="row g-3">
+        <div class="col-md-3">
+          Name: <input type="text" name="fname"><br>
         </div>
-        <div class="col-md-6">
-          <label for="exampleFormControlInput1" class="form-label">Email address</label>
-          <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+        <div class="col-md-3">
+          Email: <input type="text" name="email"><br>
+        </div>
+        <div class="col-md-3">
+          Address: <input type="text" name="address"><br>
         </div>
         <div class="col-12">
           <div class="form-check">
@@ -133,7 +138,7 @@
           </div>
         </div>
         <div class="col-12">
-          <button type="submit" class="btn btn-dark">Sign in</button>
+          <button type="submit" class="btn btn-dark">Submit</button>
         </div>
       </form>
     </div>
