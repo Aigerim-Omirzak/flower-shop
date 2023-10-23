@@ -100,11 +100,6 @@ li{
     text-align: justify;
 }
 
-.mean{
-    padding-top: 80px;
-    padding-left: 70px;
-}
-
 .round{
     border-radius: 50%;
     display: block;
@@ -112,24 +107,6 @@ li{
     margin-right: auto;
     width: 100px;
     vertical-align:middle;
-}
-
-.top-left {
-    position: absolute;
-    top: 8px;
-    left: 16px;
-}
-
-.top-right {
-    position: absolute;
-    top: 8px;
-    right: 16px;
-}
-
-.inline {
-    width: unset;
-    margin: 0 0.5em 0 0;
-    vertical-align: middle;
 }
 
 
@@ -194,7 +171,7 @@ img {
     padding-left: 20px;
 }
 
-.abouttext{
+.about-text{
     font-family: Georgia, serif;
 }
 
@@ -234,4 +211,79 @@ img {
 
 .checked {
     color: orange;
+}
+
+.todo-container {
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    padding: 20px;
+    margin-left: 100px;
+    width: 700px;
+}
+
+.input-container {
+    margin: 20px 0;
+}
+
+input[type="text"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+input[type="number"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+
+.add {
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.add:hover {
+    background-color: #0056b3;
+}
+
+.completed {
+    text-decoration: line-through;
+    color: #777;
+}
+
+.time {
+    font-size: 48px;
+    margin: 10px;
+}
+
+
+#feedbackContainer {
+    margin-top: 10px;
+}
+
+.masterclass{
+    height: 435px;
+    flex-basis: 40%;
+    border-radius: 8px;
+    alignment: left;
+}
+
+#imageContainer {
+    height: 435px;
+    overflow: hidden;
+}
+
+#imageContainer img {
+    width: 400px;
+    height: 100%;
+    transition: transform 0.5s;
 }
