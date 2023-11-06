@@ -8,9 +8,15 @@
     <link rel="stylesheet" href="./style.css">
     <link rel="icon" type="image/x-icon" href="https://i.pinimg.com/originals/78/a7/fd/78a7fd81e6744ea539e190b60b8b135f.png">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 </head>
 <body>
 <script src="script.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
 <header>
     <nav class="navbar navbar-expand-lg fixed-top navbar-scroll">
         <div class="container-fluid">
@@ -44,7 +50,7 @@
         <div id="carouselExample" class="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src="https://www.thedaysdesign.net/wp-content/uploads/2015/05/BouquetRecipe-LABELED.jpg" class="carousel_img" alt="/specialforsite/">
+                    <img src="https://www.thedaysdesign.net/wp-content/uploads/2015/05/BouquetRecipe-LABELED.jpg" class="carousel_img" >
                 </div>
                 <div class="carousel-item">
                     <img src="https://img.sunset02.com/sites/default/files/styles/marquee_large_2x/public/image/autumn-bouquet-ingredients-2_cropped_with-text_centered.jpg" class="carousel_img" alt="net">
@@ -65,12 +71,12 @@
     <div class="container">
         <div class="textwimg">
             <div id="imageContainer">
-                <img class="masterclass" src="https://www.800flower.ae/cdn/shop/products/summer-floral-original.jpg?v=1695355385" id="image" alt="First Image">
+                <img class="masterclass" src="https://flowerdose.com.au/cdn/shop/files/1_ColourTemptations_Halfdose-1573.jpg?v=1694066981&width=550" id="image" alt="First Image">
             </div>
             <div class="todo-container">
                 <h1 class="order">Create your own bouquet</h1>
                 <div class="input-container">
-                    <input type="text" id="taskInput" placeholder="Add a new task">
+                    <input type="text" id="taskInput" placeholder="Add a new flower">
                     <button id="addTask" class="btn btn-dark">Add</button>
                 </div>
                 <ul class="todo" id="taskList">
@@ -80,10 +86,15 @@
                     <div>
                         <h3>Try to make the  bouquet in 5 minutes</h3>
                         <div class="order" id="display">00:00</div>
+                        <div id="timer-container">
+                            <div id="timer-line"></div>
+                        </div>
                         <div class="controls">
                             <input type="number" id="minutes" placeholder="Enter Minutes">
                             <button class="btn btn-dark" id="start">Start</button>
                             <button class="btn btn-dark" id="reset">Reset</button>
+
+                            <audio id="alarm-sound" src="sounds/alarm-clock-short-6402.mp3"></audio>
                         </div>
                     </div>
                 </section>
@@ -96,7 +107,60 @@
                 </div>
         </div>
     </div>
-</div>
+
+
+
+    <section>
+
+        <div class="textwimg">
+        <div class="acc">
+            <h3 class="accordion">Rose</h3>
+            <div class="panel">
+                The rose is a symbol of love and passion. Different colors of roses convey various meanings, such as red roses symbolizing love and desire, while white roses represent purity and innocence.
+            </div>
+            <h3 class="accordion">Tulip</h3>
+            <div class="panel">
+                Tulips are associated with perfect love. Red tulips symbolize true love, while yellow tulips represent cheerful thoughts and sunshine.
+            </div>
+            <h3 class="accordion">Peonies</h3>
+            <div class="panel">
+                Peonies are a symbol of prosperity and good fortune. They also represent romance and are often used in weddings to symbolize a happy marriage.
+            </div>
+            <h3 class="accordion">Sunflower</h3>
+            <div class="panel">
+                Sunflowers symbolize adoration, loyalty, and longevity. They are known for their vibrant appearance and their association with warmth and happiness.
+            </div>
+        </div>
+    <div class="quiz">
+        <h1 class="order">Flower Quiz</h1>
+        <ul id="flower-list">
+            <li class="draggable" data-flower="Sunflower">Sunflower</li>
+            <li class="draggable" data-flower="Peonies">Peonies</li>
+            <li class="draggable" data-flower="Rose">Rose</li>
+            <li class="draggable" data-flower="Tulip">Tulip</li>
+        </ul>
+        <div id="image-container">
+            <div class="dropzone" data-flower="Rose">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWrDX-NdAAtY-Xm15zw9u786gOY3ErEGrixZ8J6CoiTtgqv1vbQBTS0ldVkJB4WoVcmZI&usqp=CAU" style="width: 100px; height: 100px;">
+            </div>
+            <div class="dropzone" data-flower="Tulip">
+                <img src="https://www.floraldesigninstitute.com/cdn/shop/articles/Tulip-Single-Rounded-299x315.jpg?v=1651708280" style="width: 100px; height: 100px;">
+            </div>
+            <div class="dropzone" data-flower="Sunflower">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbsnN5ckiKDSy1iEY3kaW6CQOEwfztYO3wpg&usqp=CAU" style="width: 100px; height: 100px;">
+            </div>
+            <div class="dropzone" data-flower="Peonies">
+                <img src="https://thumbs.dreamstime.com/b/beautiful-pink-peony-flower-isolated-white-background-148767752.jpg" style="width: 100px; height: 100px;">
+            </div>
+        </div>
+        <audio id="win-sound" src="sounds/success-fanfare-trumpets-6185.mp3"></audio>
+        <p id="result"></p>
+    </div>
+        </div>
+
+    </section>
+    </div>
+
 </main>
 <hr>
 <footer class="py-3 my-4">

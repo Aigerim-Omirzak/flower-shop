@@ -56,7 +56,6 @@ div.scroll-container img {
     max-width: 300px;
     height: 400px;
     object-fit: cover;
-    border-radius: 10px;
 }
 
 .gallery::after {
@@ -157,7 +156,8 @@ section{
 .textwimg {
     display: flex;
     align-items: center;
-    justify-content: center
+    justify-content: center;
+    margin-bottom: 40px;
 }
 img {
     max-width: 100%
@@ -271,14 +271,14 @@ input[type="number"] {
 }
 
 .masterclass{
-    height: 435px;
+    height: 470px;
     flex-basis: 40%;
     border-radius: 8px;
     alignment: left;
 }
 
 #imageContainer {
-    height: 435px;
+    height: 470px;
     overflow: hidden;
 }
 
@@ -286,4 +286,106 @@ input[type="number"] {
     width: 400px;
     height: 100%;
     transition: transform 0.5s;
+}
+
+.quiz {
+    width: 700px;
+    text-align: center;
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    margin: 40px auto 0 100px;
+
+}
+
+
+ul#flower-list {
+    list-style: none;
+    padding: 0;
+    display: inline-block;
+}
+
+li.draggable {
+    display: inline-block;
+    background-color: #fff;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 5px;
+}
+
+#image-container {
+    display: flex;
+    justify-content: space-around;
+}
+
+div.dropzone {
+    background-color: #e6f7ff;
+    border: 2px #e6f7ff;;
+    width: 100px;
+    height: 100px;
+    border-radius: 5px;
+    margin: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+
+}
+
+.monitor{
+    padding-top: 40px;
+}
+
+#timer-line {
+    width: 100%;
+    height: 100%;
+    background-color: #0a6711;
+    position: absolute;
+    border-radius: 10px;
+
+}
+#timer-container {
+    width: 360px;
+    height: 20px;
+    background-color: #ccc;
+    position: relative;
+    margin-left: 140px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+}
+
+.accordion{
+    background-color: rgba(126, 125, 125, 0.63);
+    border-radius: 10px;
+    color: #0a6711;
+    cursor: pointer;
+    padding: 25px;
+    width: 100%;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    font-weight: bold;
+    transition: 0.4s;
+}
+
+.active, .accordion:hover {
+    background-color: #ccc;
+}
+
+.panel {
+    padding: 0 18px;
+    background-color: white;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+}
+
+.acc {
+    width: 400px;
+    margin-left: 40px;
+    margin-top: 35px;
 }

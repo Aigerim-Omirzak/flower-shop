@@ -1,8 +1,11 @@
+// Wait for the HTML document to fully load before executing the JavaScript code
 document.addEventListener('DOMContentLoaded', function () {
+    // Get references to HTML elements using their IDs
     const taskInput = document.getElementById("taskInput");
     const addTaskButton = document.getElementById("addTask");
     const taskList = document.getElementById("taskList");
 
+    // Add a click event listener to the "Add Task" button, and also listen for Enter key presses in the input field
     addTaskButton.addEventListener("click", addTask);
     taskInput.addEventListener("keyup", function(event) {
         if (event.key === "Enter") {
@@ -10,6 +13,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
+    // Function to add a new task to the list
     function addTask() {
         const taskText = taskInput.value.trim();
 
@@ -33,6 +37,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
 
+    // Get references to HTML elements for a timer
     const display = document.getElementById("display");
     const minutesInput = document.getElementById("minutes");
     const startButton = document.getElementById("start");
@@ -43,6 +48,7 @@ document.addEventListener('DOMContentLoaded', function () {
     startButton.addEventListener("click", startTimer);
     resetButton.addEventListener("click", resetTimer);
 
+    // Function to start the timer
     function startTimer() {
         if (timerInterval) {
             clearInterval(timerInterval);
@@ -56,8 +62,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
         timerInterval = setInterval(updateTime, 1000);
         updateTime();
+
+
+
     }
 
+    // Function to update the timer display
     function updateTime() {
         const now = Date.now();
         const remainingTime = endTime - now;
@@ -65,6 +75,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (remainingTime <= 0) {
             clearInterval(timerInterval);
             display.textContent = "00:00";
+            document.getElementById("alarm-sound").play();
             return;
         }
 
@@ -75,13 +86,20 @@ document.addEventListener('DOMContentLoaded', function () {
         const displaySeconds = String(seconds).padStart(2, "0");
 
         display.textContent = `${displayMinutes}:${displaySeconds}`;
+
+        const timerLine = document.getElementById("timer-line");
+        timerLine.style.transition = `width ${remainingTime / 1000}s linear`;
+        timerLine.style.width = "0";
     }
 
+
+    // Function to reset the timer
     function resetTimer() {
         clearInterval(timerInterval);
         display.textContent = "00:00";
         minutesInput.value = "";
         endTime = null;
+
     }
 
     // Get the feedback button and display elements
@@ -113,9 +131,56 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Restore the original image on mouseout
     imageContainer.addEventListener('mouseout', () => {
-        image.src = "https://www.800flower.ae/cdn/shop/products/summer-floral-original.jpg?v=1695355385";
+        image.src = "https://flowerdose.com.au/cdn/shop/files/1_ColourTemptations_Halfdose-1573.jpg?v=1694066981&width=550";
     });
 });
+
+$(document).ready(function () {
+    var totalFlowers = 4;
+    var matchedFlowers = 0;
+
+    $(".draggable").draggable({
+        containment: ".container",
+        cursor: "grabbing",
+        revert: true
+    });
+
+    $(".dropzone").droppable({
+        accept: ".draggable",
+        drop: function (event, ui) {
+            var flowerName = $(this).data("flower");
+            var draggedFlower = ui.draggable.data("flower");
+
+            if (flowerName === draggedFlower) {
+                ui.draggable.draggable("disable");
+                $(this).droppable("disable");
+                ui.draggable.css("background-color", "#81c784");
+                matchedFlowers++;
+
+                if (matchedFlowers === totalFlowers) {
+                    $("#result").text("You Win!");
+                    document.getElementById("win-sound").play();
+                }
+            }
+        }
+    });
+
+    const acc = document.getElementsByClassName("accordion");
+    let i;
+
+    for (i = 0; i < acc.length; i++) {
+        acc[i].addEventListener("click", function() {
+            this.classList.toggle("active");
+            const panel = this.nextElementSibling;
+            if (panel.style.maxHeight) {
+                panel.style.maxHeight = null;
+            } else {
+                panel.style.maxHeight = panel.scrollHeight + "px";
+            }
+        });
+    }
+});
+
 
 
 
