@@ -24,11 +24,20 @@ function validateForm() {
         return false;
     }
 
-    return true;
+    // Show the modal
+    document.getElementById('modalsuccess').style.display = 'block';
+
+    // Prevent the form from actually submitting
+    return false;
 }
 
 // Function to validate email format
 function validateEmail(email) {
     const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
     return emailPattern.test(email);
+}
+
+// Function to close the modal
+function closeModal() {
+    document.getElementById('modalsuccess').style.display = 'none';
 }

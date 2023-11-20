@@ -133,6 +133,34 @@ document.addEventListener('DOMContentLoaded', function () {
     imageContainer.addEventListener('mouseout', () => {
         image.src = "https://flowerdose.com.au/cdn/shop/files/1_ColourTemptations_Halfdose-1573.jpg?v=1694066981&width=550";
     });
+
+
+
+    const videoContainer = document.getElementById('video-container');
+    const video = document.getElementById('fullscreen-video');
+
+// Play the video automatically
+    video.play().catch(error => {
+        console.error('Error playing the video:', error);
+    });
+
+// Function to make the video fullscreen
+    function toggleFullScreen() {
+        if (!document.fullscreenElement) {
+            videoContainer.requestFullscreen().catch(err => {
+                console.error(`Error attempting to enable full-screen mode: ${err.message}`);
+            });
+        } else {
+            document.exitFullscreen();
+        }
+    }
+
+// Add a click event listener to toggle fullscreen on video click
+    video.addEventListener('dblclick', toggleFullScreen);
+
+// Add a double click event listener to toggle fullscreen on double click
+    video.addEventListener('dblclick', toggleFullScreen);
+
 });
 
 $(document).ready(function () {
@@ -180,7 +208,4 @@ $(document).ready(function () {
         });
     }
 });
-
-
-
 
